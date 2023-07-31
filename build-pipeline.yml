@@ -1,24 +1,29 @@
 pool:
   name: Azure Pipelines
-steps:
-- task: Docker@0
-  displayName: 'Build an image'
-  inputs:
-    azureSubscription: ''
-    azureContainerRegistry: ''
-    dockerFile: '''
 
-- task: Docker@0
-  displayName: 'Push an image'
+variables:
+  currentDate: $[format('{0:yyyyMMdd}', pipeline.startTime)]
+
+steps:
+- task: Docker@2
+  displayName: 'Build Docker Image'
   inputs:
-    azureSubscription: '''
-    azureContainerRegistry: '''
-    action: 'Push an image'
-    
+    command: 'build'
+    dockerfile: '/Dockerfile'
+    buildContext: ''
+    tags: ':$(currentDate)'
+
+- task: Docker@2
+  displayName: 'Push Docker Image to ACR'
+  inputs:
+    command: 'push'
+    azureContainerRegistry: ''
+    repository: ''
+    image: '$(currentDate)'
+
 - task: AzureWebAppContainer@1
   displayName: 'Deploy to Azure App Service'
   inputs:
-    azureSubscription: 'Y'
+    azureSubscription: ''
     appName: ''
-    imageName: ''
-    containerCommand: ''
+    imageName: ':$(currentDate)'
