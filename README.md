@@ -42,7 +42,7 @@ You can use Azure PowerShell to create resources interactively with the Azure UI
 
 ##### Using Visual Studio Code (VS Code) Extensions
 
-Alternatively, you can use VS Code extensions like "Azure Account" and "Azure App Service" to create resources directly from your editor.
+Alternatively, you can use the Azure VS Code extensions to create resources directly from your editor.
 
 ### Docker
 
@@ -52,7 +52,7 @@ Now that we have our Azure resources in place, let's build the Docker image for 
 
 1. Make sure you have Docker installed on your local machine.
 
-2. In the root directory of your Streamlit app project, create a Dockerfile. This file will define the environment and dependencies required to run your app.
+2. In the root directory of your Streamlit app project in your IDE, create a Dockerfile. This file will define the environment and dependencies required to run your app.
 
 3. Build the Docker image - this can be done via the Docker Extension, once installed, just right click on the Dockerfile and click 'Build Image'. This can be done locally and sent to Azure later or built directly within the Azure Container Registry. Alternatively, the command line can be used to build the docker image and push to Azure...
 
@@ -99,5 +99,8 @@ With the Docker image pushed to the Container Registry, the Streamlit App can be
 4. Save the configuration, and Azure will automatically deploy your Streamlit app from the Docker image.
 
 5. Access your deployed Streamlit app using the App Service URL.
+
+#### Deploy via CLI
+...
 
 
