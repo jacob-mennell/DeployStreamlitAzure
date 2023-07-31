@@ -1,5 +1,5 @@
 
-# Project Name
+# Azure Streamlit Deployment
 
 [![Streamlit](https://img.shields.io/badge/built%20with-Streamlit-09a5d6.svg)](https://www.streamlit.io/)
 
