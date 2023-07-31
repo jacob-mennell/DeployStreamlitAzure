@@ -1,0 +1,16 @@
+pool:
+  name: Azure Pipelines
+steps:
+- task: Docker@0
+  displayName: 'Build an image'
+  inputs:
+    azureSubscription: ''
+    azureContainerRegistry: ''
+    dockerFile: '''
+
+- task: Docker@0
+  displayName: 'Push an image'
+  inputs:
+    azureSubscription: '''
+    azureContainerRegistry: '''
+    action: 'Push an image'
