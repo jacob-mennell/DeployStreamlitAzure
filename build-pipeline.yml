@@ -14,3 +14,11 @@ steps:
     azureSubscription: '''
     azureContainerRegistry: '''
     action: 'Push an image'
+    
+- task: AzureWebAppContainer@1
+  displayName: 'Deploy to Azure App Service'
+  inputs:
+    azureSubscription: 'Y'
+    appName: ''
+    imageName: ''
+    containerCommand: ''
