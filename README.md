@@ -3,7 +3,7 @@
 
 [![Streamlit](https://img.shields.io/badge/built%20with-Streamlit-09a5d6.svg)](https://www.streamlit.io/)
 
-Description of your project.
+ Dummy project to enable the deployment of Streamlit Apps on Microsoft Azure.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ Description of your project.
 
 ## Introduction
 
-The purpose of this project is to create a dummy project set up, with guidance and steps, to enable the delopyment of Streamlit Apps on Microsoft Azure.
+The purpose of this project is to create a dummy project set up, with guidance and steps, to enable the delopyment of Streamlit Apps on Microsoft Azure. Something that took me a bit of time to crack!
 
 ## Prerequisites
 
