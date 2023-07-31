@@ -21,7 +21,7 @@ The purpose of this project is to create a dummy project set up, with guidance a
 
 ## Prerequisites
 
-Installtion of Docker, VS Code Azure Extension (optional), VS Code Docker Extension (optional), Python
+Azure Subscription with the ability to create resources, Docker, VS Code Azure Extension (optional), VS Code Docker Extension (optional), Python ~3.9
 
 ## Deployment
 
