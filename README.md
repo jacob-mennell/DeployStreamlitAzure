@@ -10,10 +10,11 @@
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Deployment](#deployment)
+- [Continuous Integration and Deployment (CICD)](#continuous-integration-and-deployment-cicd)
   - [Azure Resources](#azure-resources)
   - [Docker](#docker)
   - [Streamlit App on Azure](#streamlit-app-on-azure)
-- [Continuous Integration and Deployment (CICD)](#continuous-integration-and-deployment-cicd)
+- [Challenges)](#Challenges)
 
 ## Introduction
 
@@ -101,6 +102,8 @@ With the Docker image pushed to the Container Registry, the Streamlit App can be
 5. Access your deployed Streamlit app using the App Service URL.
 
 #### Deploy via CLI
-...
+
+## Challenges
+In your Dockerfile, make sure to expose the port on which your Streamlit app runs (typically and by default port 8501 for Steamlit) using the `EXPOSE` command
 
 
