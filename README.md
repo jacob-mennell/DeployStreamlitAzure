@@ -48,7 +48,7 @@ Now that we have our Azure resources in place, let's build the Docker image for 
 
 2. In the root directory of your Streamlit app project in your IDE, create a Dockerfile. This file will define the environment and dependencies required to run your app.
 
-3. Build the Docker image - this can be done most essily via the VS Code Docker Extension, once installed, just right click on the Dockerfile and click 'Build Image'. This can be done locally and sent to Azure later or built directly within the Azure Container Registry. Alternatively, the command line can be used to build the docker image and push to Azure...
+3. Build the Docker image - this can be done most easily via the VS Code Docker Extension, once installed, just right click on the Dockerfile and click 'Build Image'. This can be done locally and sent to Azure later or built directly within the Azure Container Registry. Alternatively, the command line can be used to build the docker image and push to Azure...
 
 ```bash
 docker build -t your-acr-name.azurecr.io/your-app-name:latest .
