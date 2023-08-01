@@ -29,7 +29,7 @@ Azure Subscription with the ability to create resources, Docker, VS Code Azure E
 To deploy your Streamlit app on Azure, use Docker to containerize the app, Azure Container Registry (ACR) to store the Docker image, and an App Service Plan to host and run the app on Azure.
 
 ## CI/CD
-To provide automated deployment of the Streamlit app, a Continuous Integration and Deployment (CICD) pipeline can be set up with branch policies. This pipeline will leverage Azure DevOps to automatically build and push a new container image to the Azure Container Registry (ACR) whenever there's a new commit to the main branch. See build-pipeline.yml
+To provide automated deployment of the Streamlit app, a Continuous Integration and Deployment (CICD) pipeline can be set up with branch policies. This pipeline will leverage Azure DevOps to automatically build and push a new container image to the Azure Container Registry (ACR) and subsequently the Azure App Service whenever there's a new commit to the main branch. See build-pipeline.yml
 
 ### Azure Resources
 
@@ -37,13 +37,6 @@ To provide automated deployment of the Streamlit app, a Continuous Integration a
 
 Before deploying the app, the necessery Azure resources need to created This can be done using either Azure CLI, PowerShell, Azure Portal UI or Visual Studio Code (VS Code) extensions. I opted for the VS Code extension route. 
 
-##### Using PowerShell with Azure UI
-
-You can use Azure PowerShell to create resources interactively with the Azure UI. See createAzureResources.ps1
-
-##### Using Visual Studio Code (VS Code) Extensions
-
-Alternatively, you can use the Azure VS Code extensions to create resources directly from your IDE.
 
 ### Docker
 
@@ -55,7 +48,7 @@ Now that we have our Azure resources in place, let's build the Docker image for 
 
 2. In the root directory of your Streamlit app project in your IDE, create a Dockerfile. This file will define the environment and dependencies required to run your app.
 
-3. Build the Docker image - this can be done via the Docker Extension, once installed, just right click on the Dockerfile and click 'Build Image'. This can be done locally and sent to Azure later or built directly within the Azure Container Registry. Alternatively, the command line can be used to build the docker image and push to Azure...
+3. Build the Docker image - this can be done most essily via the VS Code Docker Extension, once installed, just right click on the Dockerfile and click 'Build Image'. This can be done locally and sent to Azure later or built directly within the Azure Container Registry. Alternatively, the command line can be used to build the docker image and push to Azure...
 
 ```bash
 docker build -t your-acr-name.azurecr.io/your-app-name:latest .
