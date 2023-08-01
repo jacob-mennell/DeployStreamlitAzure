@@ -29,27 +29,27 @@ Azure Subscription with the ability to create resources, Docker, VS Code Azure E
 To deploy your Streamlit app on Azure, use Docker to containerize the app, Azure Container Registry (ACR) to store the Docker image, and an App Service Plan to host and run the app on Azure.
 
 ## CI/CD
-To provide automated deployment of the Streamlit app, a Continuous Integration and Deployment (CICD) pipeline can be set up with branch policies. This pipeline will leverage Azure DevOps to automatically build and push a new container image to the Azure Container Registry (ACR) whenever there's a new commit to the main branch. See docker-compose.yml
+To provide automated deployment of the Streamlit app, a Continuous Integration and Deployment (CICD) pipeline can be set up with branch policies. This pipeline will leverage Azure DevOps to automatically build and push a new container image to the Azure Container Registry (ACR) whenever there's a new commit to the main branch. See build-pipeline.yml
 
 ### Azure Resources
 
 #### Creating Azure Resources
 
-Before deploying the app, the necessery Azure resources need to created This can be done using either Azure CLI, PowerShell, Azure Portal UI or Visual Studio Code (VS Code) extensions. I opted for VS Code extension route. 
+Before deploying the app, the necessery Azure resources need to created This can be done using either Azure CLI, PowerShell, Azure Portal UI or Visual Studio Code (VS Code) extensions. I opted for the VS Code extension route. 
 
 ##### Using PowerShell with Azure UI
 
-You can use Azure PowerShell to create resources interactively with the Azure UI. 
+You can use Azure PowerShell to create resources interactively with the Azure UI. See createAzureResources.ps1
 
 ##### Using Visual Studio Code (VS Code) Extensions
 
-Alternatively, you can use the Azure VS Code extensions to create resources directly from your editor.
+Alternatively, you can use the Azure VS Code extensions to create resources directly from your IDE.
 
 ### Docker
 
 #### Building and Pushing the Docker Image
 
-Now that we have our Azure resources in place, let's build the Docker image for your Streamlit app and push it to the Azure Container Registry (ACR).
+Now that we have our Azure resources in place, let's build the Docker image for the Streamlit app and push it to the Azure Container Registry (ACR).
 
 1. Make sure you have Docker installed on your local machine.
 
@@ -102,6 +102,7 @@ With the Docker image pushed to the Container Registry, the Streamlit App can be
 5. Access your deployed Streamlit app using the App Service URL.
 
 #### Deploy via CLI
+- to be added 
 
 ## Challenges
 In your Dockerfile, make sure to expose the port on which your Streamlit app runs (typically and by default port 8501 for Steamlit) using the `EXPOSE` command
