@@ -1,29 +1,43 @@
+trigger:
+  branches:
+    include:
+      - main
+      - dev
+
 pool:
   name: Azure Pipelines
 
-variables:
-  currentDate: $[format('{0:yyyyMMdd}', pipeline.startTime)]
+# variables:
+#   currentDate: $[format('{0:yyyyMMdd}', pipeline.startTime)]
 
-steps:
-- task: Docker@2
-  displayName: 'Build Docker Image'
-  inputs:
-    command: 'build'
-    dockerfile: '/Dockerfile'
-    buildContext: ''
-    tags: ':$(currentDate)'
+jobs:
+- job: MergeWithMain
+  displayName: 'Merge with main'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  steps:
+    - script: echo "Perform tasks for merging with main"
+      displayName: 'Custom task for merging with main'
 
-- task: Docker@2
-  displayName: 'Push Docker Image to ACR'
-  inputs:
-    command: 'push'
-    azureContainerRegistry: ''
-    repository: ''
-    image: '$(currentDate)'
+    - task: Docker@0
+      displayName: 'Build docker image of project'
+      inputs:
+        azureSubscription: ' '
+        azureContainerRegistry: '  '
+        dockerFile: 'Dockerfile'
+        includeLatestTag: true
 
-- task: AzureWebAppContainer@1
-  displayName: 'Deploy to Azure App Service'
-  inputs:
-    azureSubscription: ''
-    appName: ''
-    imageName: ':$(currentDate)'
+    - task: Docker@0
+      displayName: 'Push the project image to Container Registry'
+      inputs:
+        azureSubscription: ' '
+        azureContainerRegistry: '  '
+        action: 'Push an image'
+        includeLatestTag: true
+
+    - task: AzureWebAppContainer@1
+      displayName: 'Deploy image from Container Registry to App Service'
+      inputs:
+        azureSubscription: ' '
+        appName: 'webapp'
+        imageName: ':latest'
+              
